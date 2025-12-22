@@ -5,6 +5,8 @@ import StepTwoRegistry from "./_components/StepTwoRegistry"
 import StepThreeRegistry from "./_components/StepThreeRegistry"
 import RegistryStepIndicator from "./_components/RegistryStepIndicator"
 import RegistryPreview from "./_components/RegistryPreview"
+import subtract from "@/assets/search/Subtract.svg"
+
 
 export default function OwnerDogRegistration() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -18,10 +20,8 @@ export default function OwnerDogRegistration() {
     location: "",
     uploadedImages: [],
     microchipId: "",
-    primaryBreedDNA: "",
-    primaryBreedPercent: "",
-    secondaryBreedDNA: "",
-    secondaryBreedPercent: "",
+    primaryBreedDNAPercent: "",
+    secondaryBreedDNAPercent: "",
     healthStatus: "",
     vaccinations: [],
     healthClearances: [],
@@ -32,11 +32,22 @@ export default function OwnerDogRegistration() {
   const updateFormData = (data: any) =>
     setFormData((prev: any) => ({ ...prev, ...data }))
 
+  const handleSubmit = ()=> {
+    //
+  }
+
   return (
-    <div className="min-h-screen py-8 px-4">
+    <div className="min-h-screen relative py-8 px-4">
+      {/* decorative SVG fixed behind content; use contain so it doesn't get zoomed */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 bg-contain  bg-no-repeat pointer-events-none -z-10 opacity-30"
+        style={{ backgroundImage: `url(${subtract})` }}
+      />
+
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text- mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Real dogs, real verification, real trust
           </h1>
@@ -45,9 +56,9 @@ export default function OwnerDogRegistration() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* LEFT */}
-          <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="md:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <RegistryStepIndicator currentStep={currentStep} />
 
             {currentStep === 1 && (
@@ -70,7 +81,8 @@ export default function OwnerDogRegistration() {
             {currentStep === 3 && (
               <StepThreeRegistry
                 formData={formData}
-                prevStep={() => setCurrentStep(2)}
+                   prevStep={() => setCurrentStep(1)}
+                   handleSubmit={handleSubmit}
               />
             )}
           </div>

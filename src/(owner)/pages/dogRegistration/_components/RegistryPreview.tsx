@@ -8,18 +8,18 @@ type Props = {
 
 export default function RegistryPreview({ formData }: Props) {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-4">
+    <div className="bg-white h-min rounded-lg shadow-sm border border-gray-200 p-6 sticky top-4">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">Preview</h3>
 
-      <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <div className="shadow-md rounded-lg overflow-hidden">
         <div className="relative h-48 bg-gray-100">
           <img
             src={formData.uploadedImages?.[0] || dog1}
             alt="Dog preview"
             className="w-full h-full object-cover"
           />
-          <button className="absolute top-2 right-2 w-8 h-8 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
-            <FiX className="w-5 h-5 text-white" />
+          <button className="absolute top-2 right-2 w-8 h-8 bg-white  bg-opacity-50 rounded-sm cursor-pointer flex items-center justify-center">
+            <FiX className="w-7 h-7 text-red-500" />
           </button>
         </div>
 
