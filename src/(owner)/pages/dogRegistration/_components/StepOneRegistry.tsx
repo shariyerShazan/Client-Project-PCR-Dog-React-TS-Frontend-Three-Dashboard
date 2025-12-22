@@ -1,8 +1,6 @@
-import { useState } from "react"
+
 import type { ChangeEvent } from "react"
 import { FiUpload, FiX } from "react-icons/fi"
-import dog1 from "@/assets/home/allDogs/dog1.png"
-import dog2 from "@/assets/home/allDogs/dog2.png"
 
 type StepOneProps = {
   formData: any
@@ -11,7 +9,7 @@ type StepOneProps = {
 }
 
 export default function StepOneRegistry({ formData, updateFormData, nextStep }: StepOneProps) {
-  const [activeTab, setActiveTab] = useState("basic")
+
 
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files ? Array.from(e.target.files) : []
@@ -37,29 +35,6 @@ export default function StepOneRegistry({ formData, updateFormData, nextStep }: 
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Form Section */}
       <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        {/* Tabs */}
-        <div className="flex gap-4 mb-6 border-b border-gray-200">
-          <button
-            className={`pb-3 px-1 font-medium text-sm relative ${
-              activeTab === "basic" ? "text-gray-900 border-b-2 border-gray-900" : "text-gray-500"
-            }`}
-            onClick={() => setActiveTab("basic")}
-          >
-            Basic Information
-          </button>
-          <button className="pb-3 px-1 font-medium text-sm text-gray-400 cursor-not-allowed" disabled>
-            DNA & Microchip Report
-          </button>
-          <button className="pb-3 px-1 font-medium text-sm text-gray-400 cursor-not-allowed" disabled>
-            Preview & submit
-          </button>
-        </div>
-
-        {/* Step Indicator */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Basic Information</h2>
-          <span className="text-sm text-gray-600">Step 1</span>
-        </div>
 
         {/* Form Fields */}
         <div className="space-y-6">
@@ -225,37 +200,7 @@ export default function StepOneRegistry({ formData, updateFormData, nextStep }: 
         </div>
       </div>
 
-      {/* Preview Section */}
-      <div className="lg:col-span-1">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Preview</h3>
 
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
-            {/* Dog Image */}
-            <div className="relative h-48 bg-gray-100">
-              <img src={formData.uploadedImages[0] || dog1} alt="Dog preview" className="w-full h-full object-cover" />
-              <button className="absolute top-2 right-2 w-8 h-8 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
-                <FiX className="w-5 h-5 text-white" />
-              </button>
-            </div>
-
-            {/* Dog Info */}
-            <div className="p-4">
-              <h4 className="text-lg font-bold text-gray-900 mb-1">Name: {formData.dogName || "Bella Daisy"}</h4>
-              <p className="text-sm text-[#D4AF37] mb-2">Breed: {formData.breed || "Golden Retriever"}</p>
-              <p className="text-sm text-gray-600 mb-4">PKD ID: #PCR-LR-009876</p>
-
-              {/* Owner Info */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
-                  <img src={dog2 || "/placeholder.svg"} alt="Owner" className="w-full h-full object-cover" />
-                </div>
-                <span className="text-sm font-medium text-gray-900">Sarah Johnson</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
