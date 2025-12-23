@@ -1,5 +1,8 @@
+import ActivityLog from "@/(admin)/pages/activityLog/ActivityLog";
+import CertificateRequest from "@/(admin)/pages/certificateRequest/CertificateRequest";
 import AdminDashboard from "@/(admin)/pages/dashboard/AdminDashboard";
 import DogRegistrationRequest from "@/(admin)/pages/dogRegistrationRequest/DogRegistrationRequest";
+import DogRegistryPage from "@/(admin)/pages/dogRegistryPage/DogRegistryPage";
 import RoleAndPermission from "@/(admin)/pages/roleAndPermission/RoleAndPermission";
 import TransferOwnerShip from "@/(admin)/pages/transferOwnerShip/TransferOwnerShip";
 import UserManagement from "@/(admin)/pages/userManagement/UserManagement";
@@ -66,6 +69,18 @@ export const Router = createBrowserRouter([
             {
                 path: "Roles-Permissions",
                 element: <RoleAndPermission />
+            },
+            {
+                path: "Activity-Logs" ,
+                element: <ActivityLog />
+            },
+            {
+                path: "Certificate-Requests" ,
+                element: <CertificateRequest />
+            },
+            {
+                path: "Dog-Registry",
+                element: <DogRegistryPage />
             }
         ]
     },
