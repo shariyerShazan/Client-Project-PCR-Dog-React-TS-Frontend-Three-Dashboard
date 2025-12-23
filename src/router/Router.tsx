@@ -3,7 +3,9 @@ import CertificateRequest from "@/(admin)/pages/certificateRequest/CertificateRe
 import AdminDashboard from "@/(admin)/pages/dashboard/AdminDashboard";
 import DogRegistrationRequest from "@/(admin)/pages/dogRegistrationRequest/DogRegistrationRequest";
 import DogRegistryPage from "@/(admin)/pages/dogRegistryPage/DogRegistryPage";
+import ReportManagement from "@/(admin)/pages/reportManagement/ReportManagement";
 import RoleAndPermission from "@/(admin)/pages/roleAndPermission/RoleAndPermission";
+import ADsetting from "@/(admin)/pages/setting/ADsetting";
 import TransferOwnerShip from "@/(admin)/pages/transferOwnerShip/TransferOwnerShip";
 import UserManagement from "@/(admin)/pages/userManagement/UserManagement";
 import Login from "@/(auth)/login/Login";
@@ -81,6 +83,14 @@ export const Router = createBrowserRouter([
             {
                 path: "Dog-Registry",
                 element: <DogRegistryPage />
+            },
+            {
+                path: "Reports-Management" ,
+                element: <ReportManagement />
+            },
+            {
+                path: "settings" ,
+                element: <ADsetting />
             }
         ]
     },

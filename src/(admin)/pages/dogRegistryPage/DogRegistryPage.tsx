@@ -34,7 +34,7 @@ const DogRegistryPage = () => {
             <Input className="pl-10 w-64 h-10 border-slate-200 focus-visible:ring-[#2B4C8A]/20" placeholder="Search user" />
           </div>
           <Select defaultValue="all">
-            <SelectTrigger className="w-32 h-10 border-slate-200">
+            <SelectTrigger className="w-32 h-10 border-slate-200 cursor-pointer">
               <SelectValue placeholder="All" />
             </SelectTrigger>
             <SelectContent>
@@ -42,7 +42,7 @@ const DogRegistryPage = () => {
             </SelectContent>
           </Select>
         </div>
-        <Button variant="outline" className="border-[#2B4C8A] text-[#2B4C8A] gap-2 h-10 font-medium">
+        <Button variant="outline" className="border-[#2B4C8A] text-[#2B4C8A] gap-2 h-10 font-medium cursor-pointer">
           <FiDownload /> Export
         </Button>
       </div>
